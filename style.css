@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+}
+img{
+    transform: translate(-50%, -50%) rotateY(0deg) translateZ(240px);
+}
+
+/* Contenedor del grid */
+.grid-container {
+    display: grid;
+    grid-template-rows: repeat(3, auto); /* Tres filas ajustables automáticamente */
+    grid-template-columns: 1fr; /* Una sola columna */
+    gap: 20px; /* Espacio entre filas */
+    padding: 10px; /* Márgenes internos */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Elementos del grid */
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; 
+}
+
+/* Carrusel */
+#drag-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+}
+
+#spin-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: spin 20s infinite linear;
+}
+
+#spin-container img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#titulo1-1, #titulo1-2, #titulo1-3 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Animación */
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
